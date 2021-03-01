@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_percent_time_for_step
+    - paragraphs.paragraphs_type.step
+  enforced:
+    module:
+      - assign_calc
+id: paragraph.step.field_percent_time_for_step
+field_name: field_percent_time_for_step
+entity_type: paragraph
+bundle: step
+label: 'Percent time spent on this step'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,79 @@
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.full_view
+    - field.field.paragraph.step.field_due_date
+    - field.field.paragraph.step.field_percent_time_for_step
+    - field.field.paragraph.step.field_resources
+    - field.field.paragraph.step.field_step_name
+    - paragraphs.paragraphs_type.step
+  module:
+    - datetime
+    - ds
+    - text
+  enforced:
+    module:
+      - assign_calc
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_due_date
+        - field_step_name
+        - field_resources
+        - field_percent_time_for_step
+id: paragraph.step.full_view
+targetEntityType: paragraph
+bundle: step
+mode: full_view
+content:
+  field_due_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: olivero_medium
+    third_party_settings: {  }
+    type: datetime_default
+    region: ds_content
+  field_percent_time_for_step:
+    weight: 3
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: ds_content
+  field_resources:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: ds_content
+  field_step_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: ds_content
+hidden: {  }

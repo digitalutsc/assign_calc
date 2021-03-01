@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_steps
+    - node.type.assignment
+    - paragraphs.paragraphs_type.step
+  module:
+    - entity_reference_revisions
+  enforced:
+    module:
+      - assign_calc
+id: node.assignment.field_steps
+field_name: field_steps
+entity_type: node
+bundle: assignment
+label: Steps
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      step: step
+    target_bundles_drag_drop:
+      step:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

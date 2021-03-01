@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @file
+ * Contains ucsf_sfm.module
+ */
+
+function assign_calc_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'assign_calc/basic';
+}

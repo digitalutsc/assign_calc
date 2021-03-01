@@ -1,0 +1,10 @@
+basic:
+  version: 1.x
+  css:
+    theme:
+      css/basic.css: {}
+  js:
+    js/basic.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+  enforced:
+    module:
+      - assign_calc
+id: paragraph.full_view
+label: 'Full View'
+targetEntityType: paragraph
+cache: true

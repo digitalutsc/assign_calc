@@ -1,0 +1,7 @@
+example.form:
+  path: '/form'
+  defaults:
+    _title: 'The Assignment Calculator'
+    _form: '\Drupal\assign_calc\Form\AssignmentDatesForm'
+  requirements:
+    _permission: 'access content'
