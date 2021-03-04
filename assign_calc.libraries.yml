@@ -5,6 +5,7 @@ basic:
       css/basic.css: {}
   js:
     js/basic.js: {}
+    https://addevent.com/libs/atc/1.6.1/atc.min.js: { type: external, minified: true }
   dependencies:
     - core/jquery
     - core/drupal

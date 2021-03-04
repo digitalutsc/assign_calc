@@ -17,13 +17,23 @@ const para = document.querySelectorAll("div.field__items > div.field__item");
 const steps = document.querySelectorAll("div.field--name-field-percent-time-for-step");
 const dueDate = document.querySelectorAll("div.field--name-field-due-date");
 const stepName = document.querySelectorAll("div.field--name-field-step-name");
+const typeStep = document.querySelectorAll("div.paragraph--type--step");
+const resources = document.querySelectorAll("div.field--name-field-resources");
 for (let i = 0; i < steps.length; i++) {
   let partDuration = Number(steps[i].querySelector("div.field__item").innerText) * 0.01 * duration
   sumDuration = sumDuration + partDuration
   let stepDur = Math.round(sumDuration)
   var date = new Date(start.replace(/-/g, '/'));
   date.setDate(date.getDate() + (stepDur));
-  stepName[i].insertAdjacentHTML("afterbegin", `<p>Step ${i+1}</p>`);
-  stepName[i].insertAdjacentHTML("beforeend", `<h3>By ${date.toDateString()}</h3>`);
+  typeStep[i].insertAdjacentHTML("afterbegin", `<h3>By ${date.toDateString()}</h3>`);
+  typeStep[i].insertAdjacentHTML("afterbegin", `<p>Step ${i+1}</p>`);
+  typeStep[i].insertAdjacentHTML("beforeend", `
+    <div title="Add to Calendar" class="addeventatc">
+    Add to Calendar
+    <span class="start">${date.toDateString()}</span>
+    <span class="all_day_event">true</span>
+    <span class="title">${stepName[i].innerText}</span>
+    <span class="description">${resources[i].innerText}</span>
+  </div>`)
 }
 
