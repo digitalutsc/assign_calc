@@ -27,13 +27,26 @@ for (let i = 0; i < steps.length; i++) {
   date.setDate(date.getDate() + (stepDur));
   typeStep[i].insertAdjacentHTML("afterbegin", `<h3>By ${date.toDateString()}</h3>`);
   typeStep[i].insertAdjacentHTML("afterbegin", `<p>Step ${i+1}</p>`);
+  let byDate = []
+  if(date.toDateString()){
+    byDate[i] = date.toDateString()
+    console.log(byDate[i])
+  }
+  let title = []
+  if(stepName[i]){
+    title[i] = stepName[i].innerText
+  }
+  let description = []
+  if(resources[i]){
+    description[i] = resources[i].innerText
+  }
   typeStep[i].insertAdjacentHTML("beforeend", `
     <div title="Add to Calendar" class="addeventatc">
     Add to Calendar
-    <span class="start">${date.toDateString()}</span>
+    <span class="start">${byDate}</span>
     <span class="all_day_event">true</span>
-    <span class="title">${stepName[i].innerText}</span>
-    <span class="description">${resources[i].innerText}</span>
+    <span class="title">${title[i]}</span>
+    <span class="description">${description[i]}</span>
   </div>`)
 }
 
