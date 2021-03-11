@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.step.field_due_date
     - field.field.paragraph.step.field_percent_time_for_step
     - field.field.paragraph.step.field_resources
     - field.field.paragraph.step.field_step_name
