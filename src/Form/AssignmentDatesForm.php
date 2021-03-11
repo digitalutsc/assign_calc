@@ -21,8 +21,11 @@ class AssignmentDatesForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $date = date('Y-m-d');
+    date_default_timezone_set('America/Los_Angeles');
     $form['date_start'] = [
       '#type' => 'date',
+      '#default_value' => $date,
       '#title' => $this->t('Date you will begin the assignment:'),
     ];
     $form['date_due'] = [
@@ -69,9 +72,11 @@ order by n.nid
   /**
    * {@inheritdoc}
    */
-//  public function validateForm(array &$form, FormStateInterface $form_state) {
-
-//  }
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    if ($form_state->getValue('date_due') <= $form_state->getValue('date_start')) {
+      $form_state->setErrorByName('date_due', $this->t('The Due date must be more than Start date.'));
+    }
+  }
 
   /**
    * {@inheritdoc}

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains ucsf_sfm.module
+ * Contains assign_calc.module
  */
 
 function assign_calc_page_attachments(array &$page) {

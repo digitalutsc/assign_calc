@@ -47,6 +47,7 @@ for (let i = 0; i < steps.length; i++) {
     <span class="all_day_event">true</span>
     <span class="title">${title[i]}</span>
     <span class="description">${description[i]}</span>
+    <span class="client">aMQHlRLgKzfYtmKnBmhx112957</span>
   </div>`)
 }
 
