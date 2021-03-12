@@ -27,8 +27,8 @@ for (let i = 0; i < steps.length; i++) {
   let stepDur = Math.round(sumDuration)
   var date = new Date(start.replace(/-/g, '/'));
   date.setDate(date.getDate() + (stepDur));
-  typeStep[i].insertAdjacentHTML("afterbegin", `<h3>By ${date.toDateString()}</h3>`);
-  typeStep[i].insertAdjacentHTML("afterbegin", `<p>Step ${i+1}</p>`);
+  typeStep[i].insertAdjacentHTML("afterbegin", `<div class="due_date">By ${date.toDateString()}</div>`);
+  typeStep[i].insertAdjacentHTML("afterbegin", `<p class="step_number">Step ${i+1}</p>`);
   let byDate = []
   if(date.toDateString()){
     byDate[i] = date.toDateString()

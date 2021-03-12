@@ -1,0 +1,47 @@
+.paragraph--type--step {
+  border: 1px solid black;
+  margin-bottom: 1em;
+}
+
+.step_number {margin: 1em}
+
+.field--name-field-step-name.field__item {
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+  margin-left: 8em;
+  padding: 1em;
+  border: 3px solid lightgrey;
+  line-height: 1.4em;
+  height: 2em;
+}
+
+.due_date {
+  font-weight: 800;
+  font-family: Arial, sans-serif;
+  width: 6em;
+  float: left;
+  padding: 1em;
+  background: lightgrey;
+  border: 3px solid lightgrey;
+  line-height: 1.4em;
+  text-align: center;
+  height: 2em;
+}
+
+.field--name-field-resources {
+  margin: 1em;
+}
+
+.field--name-field-percent-time-for-step {
+  margin: 0 1em 1em;
+}
+
+.field--name-field-percent-time-for-step .field__label {
+  font-style: italic;
+  display: inline;
+}
+.field--name-field-percent-time-for-step .field__item {
+  display: inline;
+}
+
+.addeventatc {margin-left: 1em; margin-bottom: 1em; }
