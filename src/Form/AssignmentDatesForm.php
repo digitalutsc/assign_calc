@@ -21,8 +21,8 @@ class AssignmentDatesForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $date = date('Y-m-d');
     date_default_timezone_set('America/Los_Angeles');
+    $date = date('Y-m-d');
     $form['date_start'] = [
       '#type' => 'date',
       '#default_value' => $date,

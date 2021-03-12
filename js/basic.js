@@ -19,8 +19,10 @@ const dueDate = document.querySelectorAll("div.field--name-field-due-date");
 const stepName = document.querySelectorAll("div.field--name-field-step-name");
 const typeStep = document.querySelectorAll("div.paragraph--type--step");
 const resources = document.querySelectorAll("div.field--name-field-resources");
+let pers = 0;
 for (let i = 0; i < steps.length; i++) {
   let partDuration = Number(steps[i].querySelector("div.field__item").innerText) * 0.01 * duration
+  pers = Number(steps[i].querySelector("div.field__item").innerText) + pers
   sumDuration = sumDuration + partDuration
   let stepDur = Math.round(sumDuration)
   var date = new Date(start.replace(/-/g, '/'));
@@ -50,4 +52,13 @@ for (let i = 0; i < steps.length; i++) {
     <span class="client">aMQHlRLgKzfYtmKnBmhx112957</span>
   </div>`)
 }
+(function ($, Drupal, drupalSettings) {
+  if($('body').is('.page-node-type-assignment')){
+    const messages = new Drupal.Message();
+    messages.add('You have '+ Math.round(sumDuration)+' days to finish');
+    if (pers !== 100) {
+      messages.add('Total percentage of time must be 100%.')
+    }
+  }
+})(jQuery, Drupal, drupalSettings);
 
