@@ -45,8 +45,8 @@ for (let i = 0; i < steps.length; i++) {
   typeStep[i].insertAdjacentHTML("beforeend", `
     <div title="Add to Calendar" class="addeventatc">
     Add to Calendar
-    <span class="start">${byDate}</span>
-    <span class="all_day_event">true</span>
+    <span class="start">${byDate}  04:00 PM</span>
+    <span class="end">${byDate} 05:00 PM</span>
     <span class="title">${title[i]}</span>
     <span class="description">${description[i]}</span>
     <span class="client">aMQHlRLgKzfYtmKnBmhx112957</span>
