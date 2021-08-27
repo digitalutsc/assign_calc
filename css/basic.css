@@ -5,16 +5,6 @@
 
 .step_number {margin: 1em}
 
-.field--name-field-step-name.field__item {
-  font-weight: 600;
-  font-family: Arial, sans-serif;
-  margin-left: 8em;
-  padding: 1em;
-  border: 3px solid lightgrey;
-  line-height: 1.4em;
-  height: 2em;
-}
-
 .due_date {
   font-weight: 800;
   font-family: Arial, sans-serif;
@@ -22,17 +12,27 @@
   float: left;
   padding: 1em;
   background: lightgrey;
-  border: 3px solid lightgrey;
+  border-top: 2px solid black;
   line-height: 1.4em;
   text-align: center;
-  height: 2em;
+  margin-right: 2em;
+  margin-bottom: 1em;
 }
 
-.field--name-field-resources {
+.page .field--name-field-step-name {
+  min-height: 4em;
+  font-size: 1.5em;
+  font-weight: bold; 
+  border-top: 2px solid black;
+  padding: 1.5em;
+}
+
+.page .field--name-field-resources {
   margin: 1em;
+  clear: left;
 }
 
-.field--name-field-percent-time-for-step {
+.page .field--name-field-percent-time-for-step {
   margin: 0 1em 1em;
 }
 
