@@ -60,7 +60,7 @@ order by n.nid
     $form['assignment_list'] = [
       '#type' => 'select',
       '#title' => $this
-        ->t('Type of assignment'),
+        ->t('Type of assignment:'),
       '#options' => $form['type_options']['#value'],
     ];
     $form['actions']['#type'] = 'actions';
