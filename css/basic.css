@@ -45,3 +45,34 @@
 }
 
 .addeventatc {margin-left: 1em; margin-bottom: 1em; }
+
+#assignment-form {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+
+
+/* For UTSC */
+.form-item-date-start, .form-item-date-due, .form-item-assignment-list {
+      width: 65%;
+      float: left;
+      margin-right: 1em;
+}
+
+.body .field--name-field-step-name {
+  min-height: 4em;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-top: 2px solid black;
+  padding: 1.5em;
+}
+
+.body .field--name-field-resources {
+  margin: 1em;
+  clear: left;
+}
+
+.body .field--name-field-percent-time-for-step {
+  margin: 0 1em 1em;
+}
