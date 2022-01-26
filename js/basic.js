@@ -1,4 +1,3 @@
-
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, '\\$&');
   var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -6,9 +5,6 @@ function getParameterByName(name, url = window.location.href) {
   if (!results) return null;
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }
 const start = getParameterByName('start_date');
 const due = getParameterByName('due_date');
@@ -19,18 +15,12 @@ const duration = diff / (1000 * 3600 * 24);
 let sumDuration = 0;
 const para = document.querySelectorAll("div.field__items > div.field__item");
 const steps = document.querySelectorAll("div.field--name-field-percent-time-for-step");
-//Setting percentages to not appear by default
-percent=document.querySelectorAll(".field--name-field-percent-time-for-step");
-percent.forEach(e => e.style.opacity="0%");
-percent.forEach(e => e.style.fontSize="0px");
 const dueDate = document.querySelectorAll("div.field--name-field-due-date");
 const stepName = document.querySelectorAll("div.field--name-field-step-name");
 const typeStep = document.querySelectorAll("div.paragraph--type--step");
 const resources = document.querySelectorAll("div.field--name-field-resources");
 let pers = 0;
-let count=-1;
 for (let i = 0; i < steps.length; i++) {
-  count++;
   let partDuration = Number(steps[i].querySelector("div.field__item").innerText.match(/\d+/g)[0]) * 0.01 * duration
   pers = Number(steps[i].querySelector("div.field__item").innerText) + pers
   sumDuration = sumDuration + partDuration
@@ -62,59 +52,13 @@ for (let i = 0; i < steps.length; i++) {
     <span class="client">aMQHlRLgKzfYtmKnBmhx112957</span>
   </div>`)
 }
-
-//Adding print and contact buttons
-document.getElementById('block-dsu-content').insertAdjacentHTML('beforebegin',"<p style='border: 2px solid; border-color: #d3d3d3;padding: 10px 4px 10px 4px;' id='messageText'></p> <div style='display: none' id='stepText'><b>Step Percentage</b>  <label id='switchButton' class='switch'>  <input type='checkbox' id='btnPercent'>   <span class='slider round'></span> </label></div> <br>");
-document.getElementById('messageText').innerHTML='  Writing Help:&nbsp;<a href="http://www.utm.utoronto.ca/asc/">UTM</a>&nbsp;-&nbsp;<a href="http://www.writing.utoronto.ca/writing-centres">St.G</a>&nbsp;-&nbsp;<a href="https://www.utsc.utoronto.ca/ctl/writing-support">UTSC</a>&nbsp;&nbsp;<br>Research Help: <a href="http://library.utm.utoronto.ca/contact">UTM</a>&nbsp;-&nbsp;<a href="http://onesearch.library.utoronto.ca/contact-us/">St.G</a>&nbsp;-&nbsp;<a href="http://utsc.library.utoronto.ca/help">UTSC</a>&nbsp;<br>';
-
-if (count!=-1){
-typeStep[count].insertAdjacentHTML('afterend',"<button id='btnPrint' style='margin-left: 0' title='' class='button' onclick=''>Print Schedule</button> <a id='btnContact' href='contact/assignment_planner_feedback'><button  title='' class='button' >Contact Us</button></a>");
-}
-
-//Toggling view of percentages
-document.getElementById('btnPercent').onchange=function(){
-  //steps=document.querySelectorAll(".field--name-field-percent-time-for-step");
-  if (!document.getElementById('btnPercent').checked){
-    percent.forEach(e => e.style.opacity="0%");
-    percent.forEach(e => e.style.fontSize="0px");
-  }
-  else{
-    percent.forEach(e => e.style.opacity="100%");
-    percent.forEach(e => e.style.fontSize="14px");
-  }
-}
-
-//Onclick handles creation and formatting of new window, and then calls to print once the window loads
-document.getElementById("btnPrint").onclick=function () {
-  var printWindow = window.open('', '', 'height=400,width=800');
-  printWindow.document.write('<html>    <link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_sLUfGdGnfcQ6cCkPp5wDJzcsBPn8fKmoo_949hKEH0k.css"><link rel="stylesheet" media="screen" href="/drupal/sites/default/files/css/css_u4V41heglsayYslETOtLFTnSh16kC9YPM15eokMNuN0.css"><link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_baXCUkBDahZTRQIK_wBsOgAzoYW6-qhtHUFKSdAZ8_E.css"><link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_jedXRUJ7t2_HeVoq1wqQ4JtoaEWrvUmwKB-jeh3pFS8.css"><head><title></title>');
-  printWindow.document.write('</head><body >');
-  printWindow.document.write(document.getElementById('block-dsu-content').innerHTML);
-  printWindow.document.write('</body></html>');
-  printWindow.document.querySelectorAll('#btnPrint, .addeventatc, #btnContact').forEach(e => e.remove());
-  printWindow.document.querySelectorAll('.due_date').forEach(e => e.style= "border: 1px solid black; ");
-  
-  printWindow.document.querySelectorAll('.field.field--name-field-step-name.field--type-string.field--label-hidden.field__item').forEach(e => e.style= "min-height:4em;font-size:1.5em;font-weight:bold;border-top:2px solid black;padding:1.5em;");
-  
-  printWindow.document.close();
-
-  printWindow.onload=function(){printWindow.print();};
-
-};
 (function ($, Drupal, drupalSettings) {
   if($('body').is('.page-node-type-assignment')){
     const messages = new Drupal.Message();
-   // messages.add('You have '+ Math.round(sumDuration)+' day(s) to finish');
-   document.getElementById('stepText').style.display="";
-    document.getElementById('messageText').style.display="";
-    document.getElementById('messageText').innerHTML=' Writing Help:&nbsp;<a href="http://www.utm.utoronto.ca/asc/">UTM</a>&nbsp;-&nbsp;<a href="http://www.writing.utoronto.ca/writing-centres">St.G</a>&nbsp;-&nbsp;<a href="https://www.utsc.utoronto.ca/ctl/writing-support">UTSC</a>&nbsp;&nbsp;<br>Research Help: <a href="http://library.utm.utoronto.ca/contact">UTM</a>&nbsp;-&nbsp;<a href="http://onesearch.library.utoronto.ca/contact-us/">St.G</a>&nbsp;-&nbsp;<a href="http://utsc.library.utoronto.ca/help">UTSC</a>&nbsp;<br><br>Your schedule is from <b>'+date1.getFullYear()+"-"+(parseInt(date1.getMonth())+1)+"-"+(parseInt(date1.getDate())+1)+'</b> to <b>'+date2.getFullYear()+"-"+(parseInt(date2.getMonth())+1)+"-"+(parseInt(date2.getDate())+1)+'</b><br>You have <b>'+ Math.round(sumDuration)+'</b> day(s) to finish</b><br>';
+    messages.add('You have '+ Math.round(sumDuration)+' days to finish');
     if (pers !== 100) {
       messages.add('Total percentage of time must be 100%.')
     }
-  }
-  else{
-    document.getElementById('stepText').style.display="none";
-    document.getElementById('messageText').innerHTML='  Writing Help:&nbsp;<a href="http://www.utm.utoronto.ca/asc/">UTM</a>&nbsp;-&nbsp;<a href="http://www.writing.utoronto.ca/writing-centres">St.G</a>&nbsp;-&nbsp;<a href="https://www.utsc.utoronto.ca/ctl/writing-support">UTSC</a>&nbsp;&nbsp;<br>Research Help: <a href="http://library.utm.utoronto.ca/contact">UTM</a>&nbsp;-&nbsp;<a href="http://onesearch.library.utoronto.ca/contact-us/">St.G</a>&nbsp;-&nbsp;<a href="http://utsc.library.utoronto.ca/help">UTSC</a>&nbsp;<br>';
   }
 })(jQuery, Drupal, drupalSettings);
 
