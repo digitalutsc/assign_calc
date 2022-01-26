@@ -10,7 +10,7 @@ use \Drupal\Core\Url;
  * Implements an assignment form.
  */
 class AssignmentDatesForm extends FormBase {
-
+  
   /**
    * {@inheritdoc}
    */
@@ -85,12 +85,13 @@ order by n.nid
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->messenger()->addStatus($this->t('Your schedule is from @number1 to @number2', ['@number1' => $form_state->getValue('date_start'), '@number2' => $form_state->getValue('date_due')]));
+    //$this->messenger()->addStatus($this->t('Your schedule is from @number1 to @number2', ['@number1' => $form_state->getValue('date_start'), '@number2' => $form_state->getValue('date_due')]));
     $params['query'] = [
 'start_date' => $form_state->getValue('date_start'),
 'due_date' => $form_state->getValue('date_due')
     ];
     $assign = $form_state->getValue('assignment_list');
+   // echo ("Asd");
     $form_state->setRedirectUrl(Url::fromUri('internal:' . '/node/'.$assign, $params));
   }
 }
