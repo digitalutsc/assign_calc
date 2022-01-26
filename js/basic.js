@@ -84,11 +84,19 @@ document.getElementById('btnPercent').onchange=function(){
   }
 }
 
-//Onclick handles creation and formatting of new window, and then calls to print once the window loads
+//Onclick handles creation and formatting of new window, and then calls to print once the window loads<link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_sLUfGdGnfcQ6cCkPp5wDJzcsBPn8fKmoo_949hKEH0k.css"><link rel="stylesheet" media="screen" href="/drupal/sites/default/files/css/css_u4V41heglsayYslETOtLFTnSh16kC9YPM15eokMNuN0.css"><link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_baXCUkBDahZTRQIK_wBsOgAzoYW6-qhtHUFKSdAZ8_E.css"><link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_jedXRUJ7t2_HeVoq1wqQ4JtoaEWrvUmwKB-jeh3pFS8.css">
 document.getElementById("btnPrint").onclick=function () {
+  links =document.getElementsByTagName('link')
   var printWindow = window.open('', '', 'height=400,width=800');
-  printWindow.document.write('<html>    <link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_sLUfGdGnfcQ6cCkPp5wDJzcsBPn8fKmoo_949hKEH0k.css"><link rel="stylesheet" media="screen" href="/drupal/sites/default/files/css/css_u4V41heglsayYslETOtLFTnSh16kC9YPM15eokMNuN0.css"><link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_baXCUkBDahZTRQIK_wBsOgAzoYW6-qhtHUFKSdAZ8_E.css"><link rel="stylesheet" media="all" href="/drupal/sites/default/files/css/css_jedXRUJ7t2_HeVoq1wqQ4JtoaEWrvUmwKB-jeh3pFS8.css"><head><title></title>');
-  printWindow.document.write('</head><body >');
+  printWindow.document.write('<html>    ');
+
+  //copying all stylesheets to new window, for CSS formatting
+  for(link in links){
+    if (links[link].rel=="stylesheet"){
+      printWindow.document.write(links[link].outerHTML);
+    }
+  }
+  printWindow.document.write('<head><title></title></head><body >');
   printWindow.document.write(document.getElementById('block-dsu-content').innerHTML);
   printWindow.document.write('</body></html>');
   printWindow.document.querySelectorAll('#btnPrint, .addeventatc, #btnContact').forEach(e => e.remove());
