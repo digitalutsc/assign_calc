@@ -64,9 +64,7 @@ for (let i = 0; i < steps.length; i++) {
 }
 
 //Adding print and contact buttons
-document.getElementById('block-dsu-content').insertAdjacentHTML('beforebegin',"<p style='border: 2px solid; border-color: #d3d3d3;padding: 10px 4px 10px 4px;' id='messageText'></p> <div style='display: none' id='stepText'><b>Step Percentage</b>  <label id='switchButton' class='switch'>  <input type='checkbox' id='btnPercent'>   <span class='slider round'></span> </label></div> <br>");
-document.getElementById('messageText').innerHTML='  Writing Help:&nbsp;<a href="http://www.utm.utoronto.ca/asc/">UTM</a>&nbsp;-&nbsp;<a href="http://www.writing.utoronto.ca/writing-centres">St.G</a>&nbsp;-&nbsp;<a href="https://www.utsc.utoronto.ca/ctl/writing-support">UTSC</a>&nbsp;&nbsp;<br>Research Help: <a href="http://library.utm.utoronto.ca/contact">UTM</a>&nbsp;-&nbsp;<a href="http://onesearch.library.utoronto.ca/contact-us/">St.G</a>&nbsp;-&nbsp;<a href="http://utsc.library.utoronto.ca/help">UTSC</a>&nbsp;<br>';
-
+document.getElementById('block-dsu-content').insertAdjacentHTML('beforebegin',"<p style='display: none; border: 2px solid; border-color: #d3d3d3;padding: 10px 4px 10px 4px;' id='messageText'></p> <div style='display: none' id='stepText'><b>Step Percentage</b>  <label id='switchButton' class='switch'>  <input type='checkbox' id='btnPercent'>   <span class='slider round'></span> </label></div> <br>");
 if (count!=-1){
 typeStep[count].insertAdjacentHTML('afterend',"<button id='btnPrint' style='margin-left: 0' title='' class='button' onclick=''>Print Schedule</button> <a id='btnContact' href='contact/assignment_planner_feedback'><button  title='' class='button' >Contact Us</button></a>");
 }
@@ -115,14 +113,14 @@ document.getElementById("btnPrint").onclick=function () {
    // messages.add('You have '+ Math.round(sumDuration)+' day(s) to finish');
    document.getElementById('stepText').style.display="";
     document.getElementById('messageText').style.display="";
-    document.getElementById('messageText').innerHTML=' Writing Help:&nbsp;<a href="http://www.utm.utoronto.ca/asc/">UTM</a>&nbsp;-&nbsp;<a href="http://www.writing.utoronto.ca/writing-centres">St.G</a>&nbsp;-&nbsp;<a href="https://www.utsc.utoronto.ca/ctl/writing-support">UTSC</a>&nbsp;&nbsp;<br>Research Help: <a href="http://library.utm.utoronto.ca/contact">UTM</a>&nbsp;-&nbsp;<a href="http://onesearch.library.utoronto.ca/contact-us/">St.G</a>&nbsp;-&nbsp;<a href="http://utsc.library.utoronto.ca/help">UTSC</a>&nbsp;<br><br>Your schedule is from <b>'+date1.getFullYear()+"-"+(parseInt(date1.getMonth())+1)+"-"+(parseInt(date1.getDate())+1)+'</b> to <b>'+date2.getFullYear()+"-"+(parseInt(date2.getMonth())+1)+"-"+(parseInt(date2.getDate())+1)+'</b><br>You have <b>'+ Math.round(sumDuration)+'</b> day(s) to finish</b><br>';
+    document.getElementById('messageText').innerHTML='Your schedule is from <b>'+date1.getFullYear()+"-"+(parseInt(date1.getMonth())+1)+"-"+(parseInt(date1.getDate())+1)+'</b> to <b>'+date2.getFullYear()+"-"+(parseInt(date2.getMonth())+1)+"-"+(parseInt(date2.getDate())+1)+'</b><br>You have <b>'+ Math.round(sumDuration)+'</b> day(s) to finish</b><br>';
     if (pers !== 100) {
       messages.add('Total percentage of time must be 100%.')
     }
   }
   else{
     document.getElementById('stepText').style.display="none";
-    document.getElementById('messageText').innerHTML='  Writing Help:&nbsp;<a href="http://www.utm.utoronto.ca/asc/">UTM</a>&nbsp;-&nbsp;<a href="http://www.writing.utoronto.ca/writing-centres">St.G</a>&nbsp;-&nbsp;<a href="https://www.utsc.utoronto.ca/ctl/writing-support">UTSC</a>&nbsp;&nbsp;<br>Research Help: <a href="http://library.utm.utoronto.ca/contact">UTM</a>&nbsp;-&nbsp;<a href="http://onesearch.library.utoronto.ca/contact-us/">St.G</a>&nbsp;-&nbsp;<a href="http://utsc.library.utoronto.ca/help">UTSC</a>&nbsp;<br>';
+    document.getElementById('messageText').style.display="none";
   }
 })(jQuery, Drupal, drupalSettings);
 
