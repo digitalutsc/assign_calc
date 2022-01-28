@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: assignment_planner_feedback
+label: 'Assignment Planner Feedback'
+recipients:
+  - danyal.rana@mail.utoronto.ca
+reply: ''
+weight: 0
+message: 'Feedback sent'
+redirect: ''
