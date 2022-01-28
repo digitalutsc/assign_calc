@@ -101,12 +101,15 @@ document.getElementById("btnPrint").onclick=function () {
   printWindow.document.querySelectorAll('.due_date').forEach(e => e.style= "border: 1px solid black; ");
   
   printWindow.document.querySelectorAll('.field.field--name-field-step-name.field--type-string.field--label-hidden.field__item').forEach(e => e.style= "min-height:4em;font-size:1.5em;font-weight:bold;border-top:2px solid black;padding:1.5em;");
-  
   printWindow.document.close();
 
-  printWindow.onload=function(){printWindow.print();};
+
+  printWindow.document.body.onload=function(){
+    setTimeout(function(){printWindow.print();},500);
+  }
 
 };
+
 (function ($, Drupal, drupalSettings) {
   if($('body').is('.page-node-type-assignment')){
     const messages = new Drupal.Message();
