@@ -66,7 +66,7 @@ for (let i = 0; i < steps.length; i++) {
 //Adding print and contact buttons
 document.getElementById('block-dsu-content').insertAdjacentHTML('beforebegin',"<p style='display: none; border: 2px solid; border-color: #d3d3d3;padding: 10px 4px 10px 4px;' id='messageText'></p> <div style='display: none' id='stepText'><b>Step Percentage</b>  <label id='switchButton' class='switch'>  <input type='checkbox' id='btnPercent'>   <span class='slider round'></span> </label></div> <br>");
 if (count!=-1){
-typeStep[count].insertAdjacentHTML('afterend',"<button id='btnPrint' style='margin-left: 0' title='' class='button' onclick=''>Print Schedule</button> <a id='btnContact' href='contact/assignment_planner_feedback'><button  title='' class='button' >Contact Us</button></a>");
+typeStep[count].insertAdjacentHTML('afterend',"<button id='btnPrint' style='margin-left: 0' title='' class='button' onclick=''>Print Schedule</button> <a id='btnContact' href='contact/assignment_planner_feedback'><button  title='' class='button' >Send Us Feedback</button></a>");
 }
 
 //Toggling view of percentages
