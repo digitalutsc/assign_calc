@@ -110,6 +110,15 @@ document.getElementById("btnPrint").onclick=function () {
 
 };
 
+//bold hyperlinks
+hyperlinks=document.getElementById('block-dsu-content').getElementsByTagName('a');
+for (link in hyperlinks){
+  if (hyperlinks[link].id=="btnContact"){
+    break;
+  }
+    hyperlinks[link].style.fontWeight="bold";
+}
+
 (function ($, Drupal, drupalSettings) {
   if($('body').is('.page-node-type-assignment')){
     const messages = new Drupal.Message();
