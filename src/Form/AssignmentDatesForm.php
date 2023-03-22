@@ -45,7 +45,7 @@ from
        join $node_field_data ft on ft.nid=n.nid
 where
      n.type='assignment'
-order by n.nid
+order by ft.title, n.nid
 ", array(':sep'=>'; '));
     $list = [];
     if ($result) {
