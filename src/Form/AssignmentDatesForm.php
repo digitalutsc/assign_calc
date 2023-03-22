@@ -47,8 +47,8 @@ where
      n.type='assignment'
 order by n.nid
 ", array(':sep'=>'; '));
+    $list = [];
     if ($result) {
-      $list = [];
       while ($row = $result->fetchAssoc()) {
         $list[$row['nid']] = $row['title'];
       }
