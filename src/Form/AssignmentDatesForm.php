@@ -32,21 +32,28 @@ class AssignmentDatesForm extends FormBase {
       '#type' => 'date',
       '#title' => $this->t('Date the assignment is due:'),
     ];
-		$prf = \Drupal::database()->getConnectionOptions()['prefix']['default'];	
-		$node = $prf.'node';
-		$node_field_data = $prf.'node_field_data';
+
+    // For php >8.1
+    if (!isset(\Drupal::database()->getConnectionOptions()['prefix']))
+      return $form;
+   
+    $prf = \Drupal::database()->getConnectionOptions()['prefix'];	
+    $node = $prf.'node';
+    $node_field_data = $prf.'node_field_data';
     $conn = \Drupal\Core\Database\Database::getConnection();
-    $result = $conn->query( /** @lang MySQL */
+    /** @lang MySQL */
+    $result = $conn->query(
       "SELECT
-   n.nid,
-      ft.title
-from
-   $node n
-       join $node_field_data ft on ft.nid=n.nid
-where
-     n.type='assignment'
-order by ft.title, n.nid
-", array(':sep'=>'; '));
+         n.nid,
+         ft.title
+      from
+         $node n
+         join $node_field_data ft on ft.nid=n.nid
+      where
+         n.type='assignment'
+      order by ft.title, n.nid
+      ");
+
     $list = [];
     if ($result) {
       while ($row = $result->fetchAssoc()) {
