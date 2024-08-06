@@ -1,4 +1,4 @@
-.paragraph--type--step {
+.paragraph--type-step {
   border: 1px solid black;
   margin-bottom: 1em;
 }
@@ -61,7 +61,7 @@
       margin-right: 1em;
 }
 
-.body .field--name-field-step-name {
+.field--name-field-step-name {
   min-height: 4em;
   font-size: 1.5em;
   font-weight: bold;
@@ -69,12 +69,12 @@
   padding: 1.5em;
 }
 
-.body .field--name-field-resources {
+.field--name-field-resources {
   margin: 1em;
   clear: left;
 }
 
-.body .field--name-field-percent-time-for-step {
+.field--name-field-percent-time-for-step {
   margin: 0 1em 1em;
 }
  /*Toggle button*/
@@ -141,7 +141,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-.field--name-field-percent-time-for-step, .paragraph--type--step, .paragraph--view-mode--default{
+.field--name-field-percent-time-for-step, .paragraph--type-step, .paragraph--view-mode--default{
   -webkit-transition: .4s;
   transition: .4s;
 }
