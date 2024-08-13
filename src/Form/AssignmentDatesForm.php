@@ -94,8 +94,9 @@ class AssignmentDatesForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     //$this->messenger()->addStatus($this->t('Your schedule is from @number1 to @number2', ['@number1' => $form_state->getValue('date_start'), '@number2' => $form_state->getValue('date_due')]));
     $params['query'] = [
-'start_date' => $form_state->getValue('date_start'),
-'due_date' => $form_state->getValue('date_due')
+      'start_date' => $form_state->getValue('date_start'),
+      'due_date' => $form_state->getValue('date_due'),
+      'process' => 'planning'
     ];
     $assign = $form_state->getValue('assignment_list');
    // echo ("Asd");
