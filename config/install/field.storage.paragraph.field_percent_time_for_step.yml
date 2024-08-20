@@ -3,9 +3,6 @@ status: true
 dependencies:
   module:
     - paragraphs
-  enforced:
-    module:
-      - assign_calc
 id: paragraph.field_percent_time_for_step
 field_name: field_percent_time_for_step
 entity_type: paragraph
