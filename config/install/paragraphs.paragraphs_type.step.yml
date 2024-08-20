@@ -1,9 +1,6 @@
 langcode: en
 status: true
-dependencies:
-  enforced:
-    module:
-      - assign_calc
+dependencies: {  }
 id: step
 label: Step
 icon_uuid: null
