@@ -7,9 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.step
   module:
     - entity_reference_revisions
-  enforced:
-    module:
-      - assign_calc
 id: node.assignment.field_steps
 field_name: field_steps
 entity_type: node
@@ -23,11 +20,11 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       step: step
+    negate: 0
     target_bundles_drag_drop:
       step:
-        enabled: true
         weight: 2
+        enabled: true
 field_type: entity_reference_revisions
