@@ -7,127 +7,35 @@ dependencies:
     - field.field.paragraph.step.field_step_name
     - paragraphs.paragraphs_type.step
   module:
-    - datetime
-    - ds
     - text
-  enforced:
-    module:
-      - assign_calc
-third_party_settings:
-  ds:
-    layout:
-      id: ds_1col
-      library: null
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        label: ''
-        wrappers:
-          ds_content: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
-    regions:
-      ds_content:
-        - field_due_date
-        - field_step_name
-        - field_resources
-        - field_percent_time_for_step
 id: paragraph.step.default
 targetEntityType: paragraph
 bundle: step
 mode: default
 content:
-  field_due_date:
-    weight: 0
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: olivero_medium
-    third_party_settings: {  }
-    type: datetime_default
-    region: ds_content
   field_percent_time_for_step:
-    weight: 3
-    label: inline
+    type: number_integer
+    label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ' %'
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
-    type: number_integer
-    region: ds_content
+    third_party_settings: {  }
+    weight: 0
+    region: content
   field_resources:
-    weight: 2
-    label: hidden
+    type: text_default
+    label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: ds_content
-  field_step_name:
     weight: 1
-    label: hidden
+    region: content
+  field_step_name:
+    type: string
+    label: above
     settings:
       link_to_entity: false
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi: true
-            fi-el: h3
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi-def-at: false
-    type: string
-    region: ds_content
-hidden: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true
