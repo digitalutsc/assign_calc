@@ -8,20 +8,11 @@ dependencies:
     - paragraphs.paragraphs_type.step
   module:
     - text
-  enforced:
-    module:
-      - assign_calc
 id: paragraph.step.default
 targetEntityType: paragraph
 bundle: step
 mode: default
 content:
-  field_due_date:
-    type: datetime_default
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_resources:
     type: text_textarea
     weight: 1
