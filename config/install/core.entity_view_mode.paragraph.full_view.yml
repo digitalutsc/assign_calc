@@ -8,5 +8,6 @@ dependencies:
       - assign_calc
 id: paragraph.full_view
 label: 'Full View'
+description: ''
 targetEntityType: paragraph
 cache: true
