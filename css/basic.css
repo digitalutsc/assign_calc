@@ -54,6 +54,10 @@
 
 
 /* For UTSC */
+#assignment-form {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
 
 .form-item-date-start, .form-item-date-due, .form-item-assignment-list {
       width: 65%;
