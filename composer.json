@@ -6,7 +6,6 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal/admin_toolbar": "^3.5",
-        "drupal/console": "~1.0",
         "drupal/devel": "^5.0",
         "drupal/devel_php": "^1.7",
         "drupal/paragraphs": "^1.18",
