@@ -8,3 +8,4 @@ dependencies:
   - paragraphs
   - entity_reference_revisions
   - contact
+  - ds
