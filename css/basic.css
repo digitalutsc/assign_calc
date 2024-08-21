@@ -58,7 +58,9 @@
   display: grid;
   grid-template-columns: 33% 33% 33%;
 }
-
+select.form-select {
+  margin: 0 !important;
+}
 .form-item-date-start, .form-item-date-due, .form-item-assignment-list {
       width: 65%;
       float: left;
