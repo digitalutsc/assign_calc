@@ -11,10 +11,11 @@ const PARAGRAPH_NAME = 'step';
 
 function assign_calc_page_attachments(array &$page) {
   $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node instanceof \Drupal\node\NodeInterface && $node->getType() == 'assignment') {
+  if ($node instanceof \Drupal\node\NodeInterface && $node->getType() == 'assignment' || \Drupal::routeMatch()->getRouteName() == 'example.form') {
     $page['#attached']['library'][] = 'assign_calc/basic';
   }
 }
+
 
 function assign_calc_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if($form_id=="contact_message_assignment_planner_feedback_form"){
