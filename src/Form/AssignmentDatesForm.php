@@ -30,7 +30,7 @@ class AssignmentDatesForm extends FormBase {
     ];
     $form['date_due'] = [
       '#type' => 'date',
-      '#title' => $this->t('Date the assignment is due:'),
+      '#title' => $this->t('Date the assignment is due:') . "<br><br>",
     ];
 
     // For php >8.1
@@ -67,7 +67,7 @@ class AssignmentDatesForm extends FormBase {
     $form['assignment_list'] = [
       '#type' => 'select',
       '#title' => $this
-        ->t('Type of assignment:'),
+        ->t('Type of assignment:') . "<br><br>",
       '#options' => $form['type_options']['#value'],
     ];
     $form['actions']['#type'] = 'actions';

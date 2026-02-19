@@ -62,7 +62,7 @@ select.form-select {
   margin: 0 !important;
 }
 .form-item-date-start, .form-item-date-due, .form-item-assignment-list {
-      width: 65%;
+      /*width: 65%;*/
       float: left;
       margin-right: 1em;
 }
@@ -142,6 +142,7 @@ input:checked + .slider:before {
 /* Rounded sliders */
 .slider.round {
   border-radius: 17px;
+  top: -2px;
 }
 
 .slider.round:before {
