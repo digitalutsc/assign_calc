@@ -50,7 +50,7 @@ function initPlanner() {
     if (stepResources[i]) {
       description[i] = stepResources[i].innerText;
     }
-    stepType[i].insertAdjacentHTML("beforeend", `
+    /*stepType[i].insertAdjacentHTML("beforeend", `
       <div title="Add to Calendar" class="addeventatc">
       Add to Calendar
       <span class="start">${byDate} 04:00 PM</span>
@@ -58,7 +58,7 @@ function initPlanner() {
       <span class="title">${title[i]}</span>
       <span class="description">${description[i]}</span>
       <span class="client">aMQHlRLgKzfYtmKnBmhx112957</span>
-    </div>`)
+    </div>`)*/
   }
   document.querySelector('[assign_calc="body"]').parentElement.insertAdjacentHTML('beforebegin',"<p style='display: none; border: 2px solid; border-color: #d3d3d3;padding: 10px 4px 10px 4px;' id='messageText'></p> <div style='display: none' id='stepText'><b>Step Percentage</b>  <label id='switchButton' class='switch'>  <input type='checkbox' id='btnPercent'>   <span class='slider round'></span> </label></div> <br>");
   if (timePerStep.length > 0) {

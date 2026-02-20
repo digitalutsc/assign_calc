@@ -152,3 +152,18 @@ input:checked + .slider:before {
   -webkit-transition: .4s;
   transition: .4s;
 }
+
+.js-form-item label { 
+  height: 35px !important;
+}
+
+.utsc-btn {
+    margin-top: 10px;
+    background-color: #001228 !important;
+    border-color: #001228 !important;
+    color: #ffffff;
+}
+
+.select-assignment-list {
+   height: auto !important;
+}

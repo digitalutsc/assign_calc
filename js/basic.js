@@ -52,7 +52,7 @@ for (let i = 0; i < steps.length; i++) {
   if(resources[i]){
     description[i] = resources[i].innerText
   }
-  typeStep[i].insertAdjacentHTML("beforeend", `
+  /*typeStep[i].insertAdjacentHTML("beforeend", `
     <div title="Add to Calendar" class="addeventatc">
     Add to Calendar
     <span class="start">${byDate}  04:00 PM</span>
@@ -60,7 +60,7 @@ for (let i = 0; i < steps.length; i++) {
     <span class="title">${title[i]}</span>
     <span class="description">${description[i]}</span>
     <span class="client">aMQHlRLgKzfYtmKnBmhx112957</span>
-  </div>`)
+  </div>`)*/
 }
 
 //Adding print and contact buttons
