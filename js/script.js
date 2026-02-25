@@ -62,7 +62,7 @@ function initPlanner() {
   }
   document.querySelector('[assign_calc="body"]').parentElement.insertAdjacentHTML('beforebegin',"<p style='display: none; border: 2px solid; border-color: #d3d3d3;padding: 10px 4px 10px 4px;' id='messageText'></p> <div style='display: none' id='stepText'><b>Step Percentage</b>  <label id='switchButton' class='switch'>  <input type='checkbox' id='btnPercent'>   <span class='slider round'></span> </label></div> <br>");
   if (timePerStep.length > 0) {
-    stepType[timePerStep.length - 1].insertAdjacentHTML('afterend',"<button id='btnPrint' style='margin-left: 0' title='' class='button' onclick=''>Print Schedule</button> <a id='btnContact' href='contact/assignment_planner_feedback'><button  title='' class='button' >Send Us Feedback</button></a>");
+    stepType[timePerStep.length - 1].insertAdjacentHTML('afterend',"<button id='btnPrint' style='margin-left: 0' title='' class='button' onclick=''>Print Schedule</button> <!--<a id='btnContact' href='contact/assignment_planner_feedback'><button  title='' class='button' >Send Us Feedback</button></a>-->");
     document.getElementById('btnPrint').onclick = () => {
       let links = document.getElementsByTagName('link');
       let printWindow = window.open('', '', 'height=400,width=800');
