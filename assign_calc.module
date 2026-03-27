@@ -1,28 +1,42 @@
 <?php
-use Drupal\Core\Form\FormStateInterface;
+
 /**
  * @file
- * Contains assign_calc.module
+ * Contains assign_calc.module.
  */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+
+// phpcs:disable
 const BODY = 'body';
 const STEPS = 'steps';
 const STEP = 'step';
 const PARAGRAPH_NAME = 'step';
+// phpcs:enable
 
+/**
+ * Attaches the assign_calc/basic library to assignment nodes and example forms.
+ */
 function assign_calc_page_attachments(array &$page) {
   $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node instanceof \Drupal\node\NodeInterface && $node->getType() == 'assignment' || \Drupal::routeMatch()->getRouteName() == 'example.form') {
+  if ($node instanceof NodeInterface && $node->getType() == 'assignment' || \Drupal::routeMatch()->getRouteName() == 'example.form') {
     $page['#attached']['library'][] = 'assign_calc/basic';
   }
 }
 
-
-function assign_calc_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if($form_id=="contact_message_assignment_planner_feedback_form"){
+/**
+ * Alters the assignment planner feedback form subject default value.
+ */
+function assign_calc_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == "contact_message_assignment_planner_feedback_form") {
     $form['subject']['widget'][0]['value']['#default_value'] = "Assignment Planner Feedback";
   }
 }
 
+/**
+ * Adds assign_calc attributes.
+ */
 function assign_calc_preprocess_node(&$variables) {
   if ($variables['node']->getType() == 'assignment') {
     $variables['content']['body']['#attributes']['assign_calc'] = BODY;
@@ -36,6 +50,9 @@ function assign_calc_preprocess_node(&$variables) {
   }
 }
 
+/**
+ * Adds assign_calc attribute.
+ */
 function assign_calc_preprocess_field(&$variables) {
   if ($variables['element']['#bundle'] === PARAGRAPH_NAME && $variables['entity_type'] == 'paragraph') {
     $variables['attributes']['assign_calc'] = $variables['field_name'];

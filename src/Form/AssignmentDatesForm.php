@@ -2,21 +2,23 @@
 
 namespace Drupal\assign_calc\Form;
 
+use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use \Drupal\Core\Url;
+use Drupal\Core\Url;
 
 /**
  * Implements an assignment form.
  */
 class AssignmentDatesForm extends FormBase {
-  
+
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
     return 'assignment_form';
   }
+
   /**
    * {@inheritdoc}
    */
@@ -33,14 +35,17 @@ class AssignmentDatesForm extends FormBase {
       '#title' => $this->t('Date the assignment is due:'),
     ];
 
-    // For php >8.1
-    if (!isset(\Drupal::database()->getConnectionOptions()['prefix']))
+    // For php >8.1.
+    // phpcs:ignore -- \Drupal calls should be avoided in classes, use dependency injection instead
+    if (!isset(\Drupal::database()->getConnectionOptions()['prefix'])) {
       return $form;
-   
-    $prf = \Drupal::database()->getConnectionOptions()['prefix'];	
-    $node = $prf.'node';
-    $node_field_data = $prf.'node_field_data';
-    $conn = \Drupal\Core\Database\Database::getConnection();
+    }
+
+    // phpcs:ignore -- \Drupal calls should be avoided in classes, use dependency injection instead
+    $prf = \Drupal::database()->getConnectionOptions()['prefix'];
+    $node = $prf . 'node';
+    $node_field_data = $prf . 'node_field_data';
+    $conn = Database::getConnection();
     /** @lang MySQL */
     $result = $conn->query(
       "SELECT
@@ -60,24 +65,24 @@ class AssignmentDatesForm extends FormBase {
         $list[$row['nid']] = $row['title'];
       }
     }
-    $form['type_options'] = array(
+    $form['type_options'] = [
       '#type' => 'value',
-      '#value' => $list
-    );
+      '#value' => $list,
+    ];
     $form['assignment_list'] = [
       '#type' => 'select',
       '#title' => $this
         ->t('Type of assignment:'),
       '#options' => $form['type_options']['#value'],
-      '#attributes' => array('class' => array('form-control select-assignment-list')),
+      '#attributes' => ['class' => ['form-control select-assignment-list']],
     ];
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Calculate Schedule'),
       '#button_type' => 'primary',
-      '#attributes' => array('class' => array('utsc-btn')),
-      ];
+      '#attributes' => ['class' => ['utsc-btn']],
+    ];
     return $form;
   }
 
@@ -94,14 +99,16 @@ class AssignmentDatesForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    //$this->messenger()->addStatus($this->t('Your schedule is from @number1 to @number2', ['@number1' => $form_state->getValue('date_start'), '@number2' => $form_state->getValue('date_due')]));
+    // phpcs:ignore -- Line exceeds 80 characters; contains 195 characters
+    // $this->messenger()->addStatus($this->t('Your schedule is from @number1 to @number2', ['@number1' => $form_state->getValue('date_start'), '@number2' => $form_state->getValue('date_due')]));
     $params['query'] = [
       'start_date' => $form_state->getValue('date_start'),
       'due_date' => $form_state->getValue('date_due'),
-      'process' => 'planning'
+      'process' => 'planning',
     ];
     $assign = $form_state->getValue('assignment_list');
-   // echo ("Asd");
-    $form_state->setRedirectUrl(Url::fromUri('internal:' . '/node/'.$assign, $params));
+    // Echo ("Asd");.
+    $form_state->setRedirectUrl(Url::fromUri("internal:/node/$assign", $params));
   }
+
 }
