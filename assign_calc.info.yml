@@ -8,3 +8,11 @@ dependencies:
   - paragraphs
   - entity_reference_revisions
   - contact
+  - node
+  - menu_ui
+  - views
+  - ds
+  - text
+  - datetime
+  - field
+  - path

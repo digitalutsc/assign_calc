@@ -6,11 +6,39 @@ use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Database\Connection;
 
 /**
  * Implements an assignment form.
  */
 class AssignmentDatesForm extends FormBase {
+
+  /**
+   * The database connection.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $database;
+
+  /**
+   * Constructs a assignment form object.
+   *
+   * @param \Drupal\Core\Database\Connection $database
+   *   The database connection.
+   */
+  public function __construct(Connection $database) {
+    $this->database = $database;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('database')
+    );
+  }
 
   /**
    * {@inheritdoc}
@@ -36,13 +64,11 @@ class AssignmentDatesForm extends FormBase {
     ];
 
     // For php >8.1.
-    // phpcs:ignore -- \Drupal calls should be avoided in classes, use dependency injection instead
-    if (!isset(\Drupal::database()->getConnectionOptions()['prefix'])) {
+    if (!isset($this->database->getConnectionOptions()['prefix'])) {
       return $form;
     }
 
-    // phpcs:ignore -- \Drupal calls should be avoided in classes, use dependency injection instead
-    $prf = \Drupal::database()->getConnectionOptions()['prefix'];
+    $prf = $this->database->getConnectionOptions()['prefix'];
     $node = $prf . 'node';
     $node_field_data = $prf . 'node_field_data';
     $conn = Database::getConnection();

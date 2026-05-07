@@ -9,7 +9,7 @@ on:
 
 jobs:
   islandora-module-ci:
-    uses: digitalutsc/reusable_workflows/.github/workflows/islandora-module-ci.yml@main
+    uses: digitalutsc/reusable_workflows/.github/workflows/islandora-module-ci-d10only.yml@main
     with:
       module_name: assign_calc
-      install_chromedriver: false
+      install_chromedriver: true
